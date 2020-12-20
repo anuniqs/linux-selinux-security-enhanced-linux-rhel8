@@ -1,37 +1,44 @@
-## Welcome to GitHub Pages
+## SELinux, Seecurity Enhance Linux —
 
-You can use the [editor on GitHub](https://github.com/anuniqs/redhat8-selinux/edit/gh-pages/index.md) to maintain and preview the content for your website in Markdown files.
+Security-Enhanced Linux is a Linux kernel security module that provides a mechanism for supporting access control security policies, including mandatory access controls. SELinux is a set of kernel modifications and user-space tools that have been added to various Linux distributions. 
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+### Mode of SELinux —
 
-### Markdown
+1. Enforcing
+2. Permissive
+3. Disabled
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
 
-```markdown
-Syntax highlighted code block
+### Status show details —
 
-# Header 1
-## Header 2
-### Header 3
+[root@192 ~]# sestatus
 
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
+```
+SELinux status:                 enabled
+SELinuxfs mount:                /sys/fs/selinux
+SELinux root directory:         /etc/selinux
+Loaded policy name:             targeted
+Current mode:                   permissive
+Mode from config file:          enforcing
+Policy MLS status:              enabled
+Policy deny_unknown status:     allowed
+Memory protection checking:     actual (secure)
+Max kernel policy version:      32
 ```
 
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
 
-### Jekyll Themes
+### Policy consists of User, Role and Domains — 
 
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/anuniqs/redhat8-selinux/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
+[root@192 ~]# semodule -l | less
 
-### Support or Contact
+[root@192 ~]# semanage boolean -l | less
 
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+[root@192 ~]# getsebool cron_system_cronjob_use_shares
+
+```cron_system_cronjob_use_shares --> off```
+
+[root@192 ~]# setsebool cron_system_cronjob_use_shares on
+
+[root@192 ~]# getsebool cron_system_cronjob_use_shares
+
+```cron_system_cronjob_use_shares --> on```
