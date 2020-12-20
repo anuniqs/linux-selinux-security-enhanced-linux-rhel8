@@ -1,4 +1,4 @@
-## SELinux, Seecurity Enhance Linux —
+## SELinux, Security Enhance Linux —
 
 Security-Enhanced Linux is a Linux kernel security module that provides a mechanism for supporting access control security policies, including mandatory access controls. SELinux is a set of kernel modifications and user-space tools that have been added to various Linux distributions. 
 
