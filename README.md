@@ -42,3 +42,7 @@ Max kernel policy version:      32
 [root@192 ~]# getsebool cron_system_cronjob_use_shares
 
 ```cron_system_cronjob_use_shares --> on```
+
+.
+  
+**@ By — Anup Kumar Mondal**
